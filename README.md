@@ -9,3 +9,4 @@ Version 1 of the Astro/Netlify sales page for the 50/50 test against the GHL sal
 - Tracking: Meta Pixel 850574090934839 (PageView, ViewContent, InitiateCheckout on click) and PostHog
   (site = astro-ccf, cta_click events).
 - Build: `npm install` then `npm run build` (output in dist/). Netlify reads netlify.toml.
+- Live: https://lg-ccf.netlify.app (Netlify project lg-ccf, auto-deploys from main).

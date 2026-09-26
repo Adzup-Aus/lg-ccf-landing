@@ -1,0 +1,26 @@
+---
+// Simple chord box: frets[i] for strings E A D G B e (low to high). -1 = muted, 0 = open.
+interface Props { name: string; frets: number[]; fingers?: (number|null)[] }
+const { name, frets, fingers = [] } = Astro.props;
+const x = (s: number) => 14 + s * 18;
+const y = (f: number) => 26 + f * 22 - 11;
+---
+<figure class="chord">
+  <svg viewBox="0 0 118 130" role="img" aria-label={`${name} chord diagram`}>
+    <rect x="14" y="22" width="90" height="4" fill="currentColor" />
+    {[0,1,2,3,4].map(f => <line x1="14" x2="104" y1={26 + f*22} y2={26 + f*22} stroke="currentColor" stroke-width="1.5" />)}
+    {[0,1,2,3,4,5].map(s => <line x1={x(s)} x2={x(s)} y1="26" y2="114" stroke="currentColor" stroke-width="1.5" />)}
+    {frets.map((f, s) => f === -1
+      ? <text x={x(s)} y="16" text-anchor="middle" font-size="12" fill="currentColor">×</text>
+      : f === 0
+        ? <circle cx={x(s)} cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5" />
+        : <g><circle cx={x(s)} cy={y(f)} r="7.5" fill="#d30e0f" />{fingers[s] && <text x={x(s)} y={y(f) + 4} text-anchor="middle" font-size="10" fill="#fff">{fingers[s]}</text>}</g>
+    )}
+  </svg>
+  <figcaption>{name}</figcaption>
+</figure>
+<style>
+  .chord { margin: 0; text-align: center; color: #111; }
+  .chord svg { width: 100%; max-width: 118px; height: auto; }
+  figcaption { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.4rem; margin-top: .2rem; }
+</style>

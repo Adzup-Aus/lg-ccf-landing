@@ -1,0 +1,200 @@
+---
+import Base from '../layouts/Base.astro';
+import Chord from '../components/Chord.astro';
+
+// Checkout lives in GHL. Every "Start" button goes there and carries the ad's tracking along.
+const CHECKOUT = 'https://leanguitarist.com/checkout-page';
+
+const included = [
+  ['4-Module Song System', 'Play a real song in your very first session, then keep adding more.'],
+  ['Chord Stacking Method', 'Each new chord joins the others, so your song list grows fast.'],
+  ['20-Minute Practice Plans', 'One clear goal per session, with a 10-minute option for busy days.'],
+  ['Printable Chord Charts', 'Just the 4 chords on one clean page to keep next to your guitar.'],
+];
+
+const bonuses = [
+  ['Sore Finger Survival Kit', 'Simple ways to keep fingertips comfortable while they toughen up, so the first week is easier.'],
+  ['Daily Practice Tracker', 'A printable 21-day checklist. Open it, see today\'s task, do it, tick it off.'],
+  ['Strumming Pattern Guide', 'The strum patterns most popular songs use, so simple chords sound like real music.'],
+  ['Campfire Ready Checklist', 'A short self-check that shows when you\'re ready to play in front of people.'],
+];
+
+const steps = [
+  ['Play a song', 'Pick up your guitar and play a song you know in your first sitting. No warm-ups, no theory.'],
+  ['Stack your songs', 'Spend about 20 minutes a day. Each new chord opens up more songs, so your list keeps growing.'],
+  ['Keep growing', 'Use the same 4 chords to learn new songs on your own, long after the 21 days.'],
+];
+
+const faqs = [
+  ['I tried guitar before and quit. How is this different?', 'Most courses start with theory and drills. This one starts with a song on day one, and every lesson ends with something you can play.'],
+  ['Can I really play songs with just 4 chords?', 'Yes. G, C, D and E minor sit underneath a huge number of popular songs. They are the building blocks, not a shortcut. The course comes with a library of over 100 songs that use them.'],
+  ['What if I only have 10 or 15 minutes some days?', 'Every practice plan has a 10-minute option. Short, regular sessions still move you forward.'],
+  ['Do I need to read music?', 'No. There is no sheet music at all. Everything is shown with simple chord shapes and song walkthroughs.'],
+  ['What if my fingers hurt?', 'A little soreness in the first week is normal. The Sore Finger Survival Kit shows simple ways to keep going comfortably.'],
+  ['Is this a subscription?', 'No. You pay $9 once and keep lifetime access. Nothing renews.'],
+  ['How do I get access?', 'Straight after checkout. It is all digital, so you can start your first song today.'],
+  ['Can I get a refund?', 'This is a digital product you can use straight away, so purchases are not refundable. If you are unsure whether it suits you, email info@leanguitarist.com before you buy and we will help.'],
+];
+---
+<Base
+  title="Core Chord Formula - Play Real Songs With 4 Easy Chords"
+  description="A song-first guitar course for busy adults. Learn G, C, D and E minor inside real songs, 20 minutes a day, for a one-time $9.">
+
+  <header class="topbar">
+    <span class="brand">Lean Guitarist</span>
+    <a class="topcta" href={CHECKOUT} data-cta="topbar">Start for $9</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="callout">For beginners, returning players and busy parents</p>
+      <h1>A 4-Chord Method That Unlocks 100+ Popular Songs in 21 Days, Without Music Lessons</h1>
+      <p class="sub">No scales. No music theory. No finger drills. Just real songs from your very first session, even if other courses and apps didn't stick.</p>
+      <div class="chords" aria-label="The 4 chords">
+        <Chord name="G" frets={[3,2,0,0,0,3]} fingers={[2,1,null,null,null,3]} />
+        <Chord name="C" frets={[-1,3,2,0,1,0]} fingers={[null,3,2,null,1,null]} />
+        <Chord name="D" frets={[-1,-1,0,2,3,2]} fingers={[null,null,null,1,3,2]} />
+        <Chord name="Em" frets={[0,2,2,0,0,0]} fingers={[null,2,3,null,null,null]} />
+      </div>
+      <div class="offer">
+        <p class="price"><s>$67</s> <strong>$9</strong> one time</p>
+        <a class="cta" href={CHECKOUT} data-cta="hero">Start the Core Chord Formula</a>
+        <p class="small">Lifetime access. No subscription. Instant digital access. Prices in USD.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <h2>What's inside</h2>
+      <p class="lead">Everything is built around one idea: play real songs first and learn as you go. A clear 21-day path from your first song to 100+.</p>
+      <ul class="cards">
+        {included.map(([t, d]) => <li><h3>{t}</h3><p>{d}</p></li>)}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Plus 4 free bonuses</h2>
+      <ul class="cards">
+        {bonuses.map(([t, d], i) => <li><span class="tag">Bonus {i + 1}</span><h3>{t}</h3><p>{d}</p></li>)}
+      </ul>
+    </section>
+
+    <section class="band">
+      <h2>How it works</h2>
+      <ol class="steps">
+        {steps.map(([t, d], i) => <li><span class="num">{i + 1}</span><div><h3>{t}</h3><p>{d}</p></div></li>)}
+      </ol>
+    </section>
+
+    <section>
+      <h2>Progress you can hear</h2>
+      <p class="lead">Most programs count the lessons you finish. This one counts the songs you can play. Every practice session ends with something to show for it: a song you can play for someone tonight.</p>
+      <div class="compare">
+        <div class="col us">
+          <h3>Core Chord Formula</h3>
+          <p class="big">$9 once</p>
+          <ul><li>First song on day 1</li><li>About 20 minutes a day</li><li>No theory needed</li><li>A clear 21-day plan</li></ul>
+        </div>
+        <div class="col">
+          <h3>Private lessons</h3>
+          <p class="big">$40 - $80 each</p>
+          <ul><li>Weekly booked sessions</li><li>Often starts with theory</li><li>No fixed finish line</li></ul>
+        </div>
+        <div class="col">
+          <h3>Free videos</h3>
+          <p class="big">$0</p>
+          <ul><li>Lots of choice, no set path</li><li>Easy to get lost</li><li>Hard to know what to practice next</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band final">
+      <h2>Ready to play your first song today?</h2>
+      <p class="lead">4 chords. 21 days. 100+ songs. No theory. No scales. Just music.</p>
+      <div class="offer">
+        <p class="price"><s>$67</s> <strong>$9</strong> one time</p>
+        <a class="cta" href={CHECKOUT} data-cta="final">Start the Core Chord Formula</a>
+        <p class="small">Includes all 4 bonuses. Lifetime access.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Questions</h2>
+      <div class="faq">
+        {faqs.map(([q, a]) => <details><summary>{q}</summary><p>{a}</p></details>)}
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>All prices are in USD. This offer does not include resell, private label or giveaway rights.</p>
+    <p>This site is not part of Facebook or Meta, and is not endorsed by Facebook or Meta in any way.</p>
+    <p>© Adzup Pty Ltd 2026 · <a href="https://leanguitarist.com/terms-and-conditions">Terms</a> · <a href="https://leanguitarist.com/refunds-policy">Refund policy</a> · <a href="https://leanguitarist.com/privacy-policy">Privacy</a></p>
+  </footer>
+
+  <script is:inline>
+    // Carry the ad's tracking (utm_*, fbclid) to the GHL checkout and tag the page variant.
+    (function () {
+      var q = new URLSearchParams(location.search);
+      q.set('lp', 'astro-v1');
+      document.querySelectorAll('a[data-cta]').forEach(function (a) {
+        var u = new URL(a.href);
+        q.forEach(function (v, k) { u.searchParams.set(k, v); });
+        a.href = u.toString();
+        a.addEventListener('click', function () {
+          if (window.posthog) posthog.capture('cta_click', { cta: a.dataset.cta });
+          if (window.fbq) fbq('track', 'InitiateCheckout', { value: 9, currency: 'USD' });
+        });
+      });
+    })();
+  </script>
+</Base>
+
+<style is:global>
+  :root { --red: #d30e0f; --ink: #111; --muted: #555; --line: #e6e6e6; --bg: #fff; --soft: #f6f4f1; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: 'Open Sans', system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 17px; }
+  h1, h2, h3 { font-family: 'DM Serif Display', Georgia, serif; font-weight: 400; line-height: 1.15; margin: 0 0 .5em; }
+  h1 { font-size: clamp(1.9rem, 5.5vw, 3rem); }
+  h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); text-align: center; }
+  h3 { font-size: 1.3rem; }
+  a { color: inherit; }
+  .topbar { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: .6rem 1rem; background: #000; color: #fff; }
+  .brand { font-family: 'DM Serif Display', Georgia, serif; font-size: 1.2rem; }
+  .topcta { background: var(--red); color: #fff; text-decoration: none; font-weight: 700; padding: .45rem .9rem; border-radius: 999px; font-size: .95rem; }
+  main section { padding: 3rem 1rem; max-width: 980px; margin: 0 auto; }
+  section.band { max-width: none; background: var(--soft); }
+  section.band > * { max-width: 980px; margin-left: auto; margin-right: auto; }
+  .hero { text-align: center; padding-top: 2rem; }
+  .callout { display: inline-block; background: #000; color: #fff; font-weight: 600; font-size: .85rem; padding: .3rem .8rem; border-radius: 999px; margin: 0 0 1rem; }
+  .sub, .lead { color: var(--muted); max-width: 680px; margin: 0 auto 1.5rem; text-align: center; }
+  .chords { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; max-width: 520px; margin: 1.5rem auto; }
+  .offer { margin: 1.5rem auto 0; max-width: 460px; text-align: center; }
+  .price { font-size: 1.3rem; margin: 0 0 .7rem; }
+  .price s { color: #888; margin-right: .3rem; }
+  .price strong { font-size: 2.2rem; color: var(--red); }
+  .cta { display: block; background: var(--red); color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 6px 18px rgba(211,14,15,.28); }
+  .cta:hover, .topcta:hover { filter: brightness(1.08); }
+  .small { font-size: .85rem; color: var(--muted); margin-top: .6rem; }
+  .cards { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .cards li { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem; }
+  .cards p { margin: 0; color: var(--muted); }
+  .tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--red); margin-bottom: .3rem; }
+  .steps { list-style: none; padding: 0; margin: 1.5rem auto 0; max-width: 680px; display: grid; gap: 1rem; }
+  .steps li { display: flex; gap: 1rem; align-items: flex-start; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.1rem; }
+  .steps p { margin: 0; color: var(--muted); }
+  .num { flex: 0 0 2.2rem; height: 2.2rem; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-weight: 700; }
+  .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .col { border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem; }
+  .col.us { border: 2px solid var(--red); }
+  .col ul { padding-left: 1.1rem; margin: 0; color: var(--muted); }
+  .big { font-size: 1.3rem; font-weight: 700; margin: 0 0 .5rem; }
+  .final { text-align: center; }
+  .faq { max-width: 720px; margin: 1rem auto 0; }
+  details { border-bottom: 1px solid var(--line); padding: .9rem 0; }
+  summary { cursor: pointer; font-weight: 600; }
+  details p { color: var(--muted); margin: .6rem 0 0; }
+  footer { padding: 2rem 1rem 3rem; text-align: center; font-size: .8rem; color: #777; border-top: 1px solid var(--line); }
+  footer p { max-width: 720px; margin: .3rem auto; }
+  @media (max-width: 480px) { body { font-size: 16px; } main section { padding: 2.2rem 1rem; } }
+</style>
